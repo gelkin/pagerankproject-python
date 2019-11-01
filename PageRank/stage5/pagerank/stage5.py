@@ -22,8 +22,8 @@ def pagerank(linkMatrix, d) :
     return r
 
 
-L = generate_internet(5)
-names = ["A", "B", "C", "D", "E"]
+L = generate_internet(4)
+names = ["A", "B", "C", "D"]
 search = "de"
 
 
