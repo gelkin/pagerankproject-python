@@ -1,5 +1,6 @@
 import numpy as np
 import numpy.linalg as la
+import sys
 
 L2 = np.array([[0, 1 / 2, 1 / 3, 0, 0, 0, 0],
                [1 / 3, 0, 0, 0, 1 / 2, 0, 0],
@@ -8,7 +9,8 @@ L2 = np.array([[0, 1 / 2, 1 / 3, 0, 0, 0, 0],
                [0, 0, 0, 0, 0, 0, 0],
                [0, 0, 1 / 3, 0, 0, 0, 0],
                [0, 0, 0, 0, 0, 1 / 3, 1]])
-print(L2)
+# print(L2)
+np.savetxt(sys.stdout, L2, fmt="%.3f")
 r = 100 * np.ones(7) / 7  # Sets up this vector (6 entries of 1/6 × 100 each)
 lastR = r
 r = L2 @ r
@@ -18,9 +20,11 @@ while la.norm(lastR - r) > 0.01:
     r = L2 @ r
     i += 1
 # print(str(i) + " iterations to convergence.")
-print(r)
+# print(r)
+np.savetxt(sys.stdout, r, fmt="%.3f")
 
-d = 0.5 # Feel free to play with this parameter after running the code once.
+
+d = 0.5  # Feel free to play with this parameter after running the code once.
 M = d * L2 + (1-d)/7 * np.ones([7, 7])  # np.ones() is the J matrix, with ones for each entry.
 r = 100 * np.ones(7) / 7 # Sets up this vector (6 entries of 1/6 × 100 each)
 lastR = r
@@ -31,4 +35,5 @@ while la.norm(lastR - r) > 0.01 :
     r = M @ r
     i += 1
 # print(str(i) + " iterations to convergence.")
-print(r)
+# print(r)
+np.savetxt(sys.stdout, r, fmt="%.3f")

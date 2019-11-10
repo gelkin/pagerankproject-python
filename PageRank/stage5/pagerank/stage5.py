@@ -1,5 +1,7 @@
 import numpy as np
 import numpy.linalg as la
+import sys
+
 
 def generate_internet(n) :
     c = np.full([n,n], np.arange(n))
@@ -22,9 +24,9 @@ def pagerank(linkMatrix, d) :
     return r
 
 
-L = generate_internet(4)
-names = ["A", "B", "C", "D"]
-search = "de"
+# L = generate_internet(4)
+# names = ["A", "B", "C", "D"]
+# search = "de"
 
 
 def search_website(L, names, search):
@@ -38,12 +40,25 @@ def search_website(L, names, search):
             res.append(name)
             res.extend(names_sorted[:i])
             res.extend(names_sorted[i + 1:])
-            print("c")
+            # print("c")
             break
     else:
-        print("d")
+        # print("d")
         return names_sorted
     return res
 
 
-print(search_website(L, names, search))
+# print(search_website(L, names, search))
+
+n = int(input())
+names = input().split()
+l = []
+for i in range(n):
+    row = list(map(float, input().split()))
+    l.append(row)
+search = input()
+L = np.array(l)
+
+res = search_website(L, names, search)
+for x in res:
+    print(x)
