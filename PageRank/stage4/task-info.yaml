@@ -4,3 +4,17 @@ files:
   visible: true
 - name: tests/test_task.py
   visible: false
+- name: hstest/test_case.py
+  visible: true
+- name: hstest/exceptions.py
+  visible: true
+- name: hstest/stage_test.py
+  visible: true
+- name: hstest/django_test.py
+  visible: true
+- name: hstest/test_helper.py
+  visible: true
+- name: hstest/check_result.py
+  visible: true
+- name: hstest/__init__.py
+  visible: true
