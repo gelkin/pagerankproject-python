@@ -24,16 +24,18 @@ def generate_internet(n) :
     return c
 
 
-# first_line = input().split()
-# n, d = int(first_line[0]), float(first_line[1])
-# l = []
-# for i in range(n):
-#     row = list(map(float, input().split()))
-#     l.append(row)
-#
-# a = np.array(l)
-# rank = pagerank(a, d)
-# np.savetxt(sys.stdout, pagerank(a, d), fmt="%.3f")
+first_line = input().split()
+n, d = int(first_line[0]), float(first_line[1])
+l = []
+for i in range(n):
+    row = list(map(float, input().split()))
+    l.append(row)
+
+a = np.array(l)
+rank = pagerank(a, d)
+s = StringIO()
+np.savetxt(s, pagerank(a, d), fmt="%.3f")
+print(s.getvalue())
 
 
 # print(pagerank(generate_internet(10), 0.5))
@@ -47,15 +49,18 @@ def get_eigen_pagerank(m):
     return 100 * np.real(r / np.sum(r))
 
 
-L = generate_internet(10)
-r1 = pagerank(L, 1)
-s = StringIO()
-np.savetxt(s, r1, fmt="%.3f")
-print(s.getvalue())
-r2 = get_eigen_pagerank(L)
-s = StringIO()
-np.savetxt(s, r2, fmt="%.3f")
-print(s.getvalue())
+# L = generate_internet(6)
+# s = StringIO()
+# np.savetxt(s, L, fmt="%.3f")
+# print(s.getvalue())
+# r1 = pagerank(L, 1)
+# s = StringIO()
+# np.savetxt(s, r1, fmt="%.3f")
+# print(s.getvalue())
+# r2 = get_eigen_pagerank(L)
+# s = StringIO()
+# np.savetxt(s, r2, fmt="%.3f")
+# print(s.getvalue())
 
 
 # You may wish to view the PageRank graphically.
@@ -74,4 +79,4 @@ def plot_pagerank():
     plt.show()
 
 
-plot_pagerank()
+# plot_pagerank()

@@ -3,7 +3,7 @@ import numpy as np
 from hstest.stage_test import *
 
 
-class Stage1Test(StageTest):
+class Stage3Test(StageTest):
     def generate(self) -> List[TestCase]:
         return [TestCase()]
 
@@ -34,7 +34,7 @@ class Stage1Test(StageTest):
             return CheckResult.false("The matrix you outputted is incorrect.")
         pr_wo_damp = [0.033, 0.012, 0.078, 0.049, 0.000, 0.027, 99.801]
         pr_with_damp = [13.682, 11.209, 22.420, 16.759, 7.143, 10.880, 17.907]
-        eps = 1e-2
+        eps = 1e-1
         # wo damping
         pr = []
         for i in range(n):
@@ -58,4 +58,4 @@ class Stage1Test(StageTest):
         return CheckResult.true()
 
 
-Stage1Test('pagerank.stage3').run_tests()
+Stage3Test('pagerank.stage3').run_tests()

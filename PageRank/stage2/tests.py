@@ -3,7 +3,7 @@ import numpy as np
 from hstest.stage_test import *
 
 
-class Stage1Test(StageTest):
+class Stage2Test(StageTest):
     def generate(self) -> List[TestCase]:
         return [TestCase()]
 
@@ -21,7 +21,7 @@ class Stage1Test(StageTest):
         pr_iter1 = [13.889, 13.889, 38.889, 27.778, 0.000, 5.556]
         pr_iter100 = [16.000, 5.333, 40.000, 25.333, 0.000, 13.333]
         pr_precision = [15.998, 5.334, 40.003, 25.334, 0.000, 13.331]
-        eps = 1e-2
+        eps = 1e-1
         # 1
         pr = []
         for i in range(n):
@@ -54,4 +54,4 @@ class Stage1Test(StageTest):
         return CheckResult.true()
 
 
-Stage1Test('pagerank.stage2').run_tests()
+Stage2Test('pagerank.stage2').run_tests()

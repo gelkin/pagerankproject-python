@@ -2,8 +2,6 @@ type: edu
 files:
 - name: pagerank/stage4.py
   visible: true
-- name: tests/test_task.py
-  visible: false
 - name: hstest/test_case.py
   visible: true
 - name: hstest/exceptions.py
@@ -17,4 +15,6 @@ files:
 - name: hstest/check_result.py
   visible: true
 - name: hstest/__init__.py
+  visible: true
+- name: tests.py
   visible: true

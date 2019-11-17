@@ -32,7 +32,7 @@ def search_website(L, names, search):
     r = pagerank(L, 0.5)
     names_sorted = [x for _, x in sorted(zip(list(r), names))]
     names_sorted.reverse()
-    print(r)
+    # print(r)
     res = []
     for i, name in enumerate(names_sorted):
         if search == name:
@@ -43,8 +43,8 @@ def search_website(L, names, search):
             break
     else:
         # print("d")
-        return names_sorted
-    return res
+        return names_sorted[:5]
+    return res[:5]
 
 
 # print(search_website(L, names, search))
