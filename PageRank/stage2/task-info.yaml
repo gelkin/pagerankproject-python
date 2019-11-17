@@ -16,3 +16,5 @@ files:
   visible: true
 - name: hstest/__init__.py
   visible: true
+- name: tests.py
+  visible: true
