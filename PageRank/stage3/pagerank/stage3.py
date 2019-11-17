@@ -1,6 +1,6 @@
 import numpy as np
 import numpy.linalg as la
-import sys
+from io import StringIO
 
 L2 = np.array([[0, 1 / 2, 1 / 3, 0, 0, 0, 0],
                [1 / 3, 0, 0, 0, 1 / 2, 0, 0],
@@ -10,7 +10,9 @@ L2 = np.array([[0, 1 / 2, 1 / 3, 0, 0, 0, 0],
                [0, 0, 1 / 3, 0, 0, 0, 0],
                [0, 0, 0, 0, 0, 1 / 3, 1]])
 # print(L2)
-np.savetxt(sys.stdout, L2, fmt="%.3f")
+s = StringIO()
+np.savetxt(s, L2, fmt="%.3f")
+print(s.getvalue())
 r = 100 * np.ones(7) / 7  # Sets up this vector (6 entries of 1/6 × 100 each)
 lastR = r
 r = L2 @ r
@@ -21,7 +23,9 @@ while la.norm(lastR - r) > 0.01:
     i += 1
 # print(str(i) + " iterations to convergence.")
 # print(r)
-np.savetxt(sys.stdout, r, fmt="%.3f")
+s = StringIO()
+np.savetxt(s, r, fmt="%.3f")
+print(s.getvalue())
 
 
 d = 0.5  # Feel free to play with this parameter after running the code once.
@@ -36,4 +40,6 @@ while la.norm(lastR - r) > 0.01 :
     i += 1
 # print(str(i) + " iterations to convergence.")
 # print(r)
-np.savetxt(sys.stdout, r, fmt="%.3f")
+s = StringIO()
+np.savetxt(s, r, fmt="%.3f")
+print(s.getvalue())

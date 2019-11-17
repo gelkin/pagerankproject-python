@@ -1,6 +1,6 @@
 import numpy as np
 import numpy.linalg as la
-import sys
+from io import StringIO
 
 
 def pagerank(linkMatrix, d) :
@@ -49,9 +49,13 @@ def get_eigen_pagerank(m):
 
 L = generate_internet(10)
 r1 = pagerank(L, 1)
-np.savetxt(sys.stdout, r1, fmt="%.3f")
+s = StringIO()
+np.savetxt(s, r1, fmt="%.3f")
+print(s.getvalue())
 r2 = get_eigen_pagerank(L)
-np.savetxt(sys.stdout, r2, fmt="%.3f")
+s = StringIO()
+np.savetxt(s, r2, fmt="%.3f")
+print(s.getvalue())
 
 
 # You may wish to view the PageRank graphically.

@@ -1,6 +1,6 @@
 import numpy as np
 import numpy.linalg as la
-import sys
+from io import StringIO
 
 L = np.array([[0, 1 / 2, 1 / 3, 0, 0, 0],
               [1 / 3, 0, 0, 0, 1 / 2, 0],
@@ -13,13 +13,18 @@ r = 100 * np.ones(6) / 6  # Sets up this vector (6 entries of 1/6 × 100 each)
 
 r = L @ r  # Apply matrix L to r
 # print(r)
-np.savetxt(sys.stdout, r, fmt="%.3f")
+s = StringIO()
+np.savetxt(s, r, fmt="%.3f")
+print(s.getvalue())
+
 
 r = 100 * np.ones(6) / 6  # Sets up this vector (6 entries of 1/6 × 100 each)
 for i in np.arange(100) : # Repeat 100 times
     r = L @ r
 # print(r)
-np.savetxt(sys.stdout, r, fmt="%.3f")
+s = StringIO()
+np.savetxt(s, r, fmt="%.3f")
+print(s.getvalue())
 
 r = 100 * np.ones(6) / 6 # Sets up this vector (6 entries of 1/6 × 100 each)
 lastR = r
@@ -32,4 +37,6 @@ while la.norm(lastR - r) > 0.01 :
     i += 1
 # print(str(i) + " iterations to convergence.")
 # print(r)
-np.savetxt(sys.stdout, r, fmt="%.3f")
+s = StringIO()
+np.savetxt(s, r, fmt="%.3f")
+print(s.getvalue())
